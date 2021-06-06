@@ -1,0 +1,38 @@
+{
+    "name": "avolutions/app",
+    "description": "AVOLUTIONS application template",
+    "keywords":[
+        "avolutions",
+        "PHP",
+        "framework",
+        "opensource",
+        "mvc",
+        "orm",
+        "development"
+    ],
+    "require": {
+        "php": "^8.0",
+		"avolutions/avolutions": "dev-feature-98-split-repositories"
+    },
+	"autoload": {
+		"psr-4": {
+			"Application\\": "application/"
+		}
+	},
+    "license": "MIT",
+    "homepage": "https://avolutions.org",
+    "authors": [
+        {
+            "name": "Alexander Vogt",
+            "email": "alexander.vogt@avolutions.org",
+            "homepage": "https://avolutions.org",
+            "role": "Founder"
+        }
+    ],
+    "support": {
+        "email": "support@avolutions.org",
+        "issues": "https://github.com/avolutions/app/issues",
+        "source": "https://github.com/avolutions/app",
+        "docs": "https://avolutions.org/guide"
+    }
+}
