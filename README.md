@@ -12,7 +12,7 @@ This is a basic template for creating an application with [AVOLUTIONS](https://a
 The framework source code itself can be found in this repository: [avolutions/avolutions](https://github.com/avolutions/avolutions).
 
 ## Installation
-A new project can be created by using the composer create-project command:
+A new project can be created by using the composer create-project command:  
 ```composer create-project --prefer-dist avolutions/app myproject```
 
 The system requirements, configuration and a detailed installation guide can be found in the official [guide](http://avolutions.org/guide/installation).
