@@ -19,7 +19,7 @@
 			"Application\\": "application/"
 		}
 	},
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "license": "MIT",
     "homepage": "https://avolutions.org",
     "authors": [
