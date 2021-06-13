@@ -11,12 +11,11 @@
         "development"
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "avolutions/avolutions": "^0"
     },
-    "require-dev": {
-        "avolutions/avolutions": "dev-feature-98-split-repositories"
-    },
-	"autoload": {
+    "minimum-stability": "alpha",
+    "autoload": {
 		"psr-4": {
 			"Application\\": "application/"
 		}
