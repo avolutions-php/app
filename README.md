@@ -2,7 +2,7 @@
 <h1 align="center">AVOLUTIONS Application Template</h1>
 <p align="center">
   <a href="https://packagist.org/packages/avolutions/app"><img src="https://poser.pugx.org/avolutions/app/downloads.svg" alt="Total Downloads"></a>  
-  <a href="https://packagist.org/packages/avolutions/app"><img src="https://poser.pugx.org/avolutions/app/v/stable.svg" alt="Latest Unstable Version"></a>
+  <a href="https://packagist.org/packages/avolutions/app"><img src="https://poser.pugx.org/avolutions/app/v/stable.svg" alt="Latest Stable Version"></a>
   <a href="https://packagist.org/packages/avolutions/app"><img src="https://poser.pugx.org/avolutions/app/license.svg" alt="License"></a>
 </p>
 
