@@ -11,7 +11,7 @@
         "development"
     ],
     "require": {
-        "php": "^8.0"
+        
     },
     "autoload": {
 		"psr-4": {
