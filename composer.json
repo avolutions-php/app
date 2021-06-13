@@ -11,8 +11,7 @@
         "development"
     ],
     "require": {
-        "php": "^8.0",
-        "avolutions/avolutions": "develop"
+        "php": "^8.0"
     },
     "minimum-stability": "dev",
     "autoload": {
