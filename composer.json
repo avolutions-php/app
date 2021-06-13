@@ -14,7 +14,7 @@
         "php": "^8.0",
         "avolutions/avolutions": "^0"
     },
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "autoload": {
 		"psr-4": {
 			"Application\\": "application/"
