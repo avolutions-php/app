@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+/**
+ * AVOLUTIONS
+ *
+ * Just another open source PHP framework.
+ *
+ * @copyright   Copyright (c) 2019 - 2021 AVOLUTIONS
+ * @license     MIT License (https://avolutions.org/license)
+ * @link        https://avolutions.org
+ */
+
+require_once 'bootstrap.php';
+
+// remove "avolute" from array of arguments passed to script
+array_shift($argv);
+
+exit(command($argv));
