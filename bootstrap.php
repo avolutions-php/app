@@ -9,7 +9,7 @@
  * @link        http://avolutions.org
  */
 
-use Avolutions\Core\Autoloader;
+use Avolutions\Core\Application;
 use Avolutions\Config\Config;
 use Avolutions\Database\Database;
 use Avolutions\Util\Translation;
@@ -30,6 +30,12 @@ require __DIR__.'/vendor/autoload.php';
 $ErrorHandler = new Avolutions\Core\ErrorHandler();
 set_error_handler([$ErrorHandler, 'handleError']);
 set_exception_handler([$ErrorHandler, 'handleException']);
+
+/**
+ * Initialize application
+ */
+$Application = Application::getInstance();
+$Application->initialize(__DIR__);
 
 /**
  * Initialize configuration
