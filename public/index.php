@@ -30,4 +30,4 @@ require_once '../events.php';
  * Start the application
  */
 $Request = new Request();
-$Response = $Request->send();
+$Request->send();
