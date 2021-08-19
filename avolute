@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 /**
  * AVOLUTIONS
@@ -9,10 +10,9 @@
  * @link        https://avolutions.org
  */
 
-use Avolutions\Routing\RouteCollection;
+require_once 'bootstrap.php';
 
-$RouteCollection = RouteCollection::getInstance();
+// remove "avolute" from array of arguments passed to script
+array_shift($argv);
 
-/**
- * Register routes
- */
+exit(command($argv));

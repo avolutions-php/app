@@ -5,11 +5,11 @@
  * Just another open source PHP framework.
  *
  * @copyright   Copyright (c) 2019 - 2021 AVOLUTIONS
- * @license     MIT License (http://avolutions.org/license)
- * @link        http://avolutions.org
+ * @license     MIT License (https://avolutions.org/license)
+ * @link        https://avolutions.org
  */
 
-use Avolutions\Core\Autoloader;
+use Avolutions\Core\Application;
 use Avolutions\Config\Config;
 use Avolutions\Database\Database;
 use Avolutions\Util\Translation;
@@ -30,6 +30,12 @@ require __DIR__.'/vendor/autoload.php';
 $ErrorHandler = new Avolutions\Core\ErrorHandler();
 set_error_handler([$ErrorHandler, 'handleError']);
 set_exception_handler([$ErrorHandler, 'handleException']);
+
+/**
+ * Initialize application
+ */
+$Application = Application::getInstance();
+$Application->initialize(__DIR__);
 
 /**
  * Initialize configuration
