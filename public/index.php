@@ -9,6 +9,7 @@
  * @link        https://avolutions.org
  */
 
+use Avolutions\Core\Application;
 use Avolutions\Http\Request;
 
 /**
@@ -29,5 +30,5 @@ require_once '../events.php';
 /**
  * Start the application
  */
-$Request = new Request();
-$Request->send();
+$Application = $Container->get(Application::class);
+$Application->start($Container->get(Request::class));

@@ -9,10 +9,15 @@
  * @link        https://avolutions.org
  */
 
+use Avolutions\Routing\Route;
 use Avolutions\Routing\RouteCollection;
 
-$RouteCollection = RouteCollection::getInstance();
+$RouteCollection = $Container->get(RouteCollection::class);
 
 /**
  * Register routes
  */
+$RouteCollection->addRoute(new Route('/', [
+    'controller' => 'test',
+    'action' => 'index'
+]));
