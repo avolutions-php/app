@@ -12,8 +12,7 @@
 use Avolutions\Core\Application;
 use Avolutions\Config\Config;
 use Avolutions\Database\Database;
-use Avolutions\Di\Container;
-use Avolutions\Util\Translation;
+use Avolutions\Logging\Logger;
 
 /**
  * Get start time
@@ -23,53 +22,50 @@ define('START_TIME', microtime(true));
 /**
  * Register the Autoloader
  */
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 /**
- * Set error handler
+ * Create Application
  */
-$ErrorHandler = new Avolutions\Core\ErrorHandler();
-set_error_handler([$ErrorHandler, 'handleError']);
-set_exception_handler([$ErrorHandler, 'handleException']);
-
-/**
- * Create Container
- */
-$Container = new Container();
+$Application = new Application(__DIR__);
 
 /**
  * Configure Container
  */
 // TODO to own file. How can we override this?
-// TODO add application path/folder name or setAppPath/Folder() method
-$Container->setConstructorParams(
-    Application::class,
+$Config = $Application->get(Config::class);
+$Application->setConstructorParams(
+    Database::class,
     [
-        'basePath' => __DIR__
+        'host' => $Config->get('database/host'),
+        'database' => $Config->get('database/database'),
+        'port' => $Config->get('database/port'),
+        'user' => $Config->get('database/user'),
+        'password' => $Config->get('database/password'),
+        'options' => [
+            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES ' . $Config->get('database/charset'),
+            PDO::ATTR_PERSISTENT => true
+        ]
+    ]
+);
+$Application->setConstructorParams(
+    Logger::class,
+    [
+        'logpath' => $Config->get('logger/logpath'),
+        'logfile' => $Config->get('logger/logfile'),
+        'minLogLevel' => $Config->get('logger/loglevel'),
+        'datetimeFormat' => $Config->get('logger/datetimeFormat'),
     ]
 );
 
 /**
- * Initialize application
+ * Set error handler
  */
-/*$Application = Application::getInstance();
-$Application->initialize(__DIR__);*/
-
-/**
- * Initialize configuration
- */
-/*$Config = Config::getInstance();
-$Config->initialize();*/
-
-/**
- * Initialize translation
- */
-/*$Translation = Translation::getInstance();
-$Translation->initialize();*/
+$Application->setErrorHandler();
 
 /**
  * Migrate the Database
  */
-/*if (Config::get('database/migrateOnAppStart')) {
+/*if ($Config->get('database/migrateOnAppStart')) {
     Database::migrate();
 }*/
