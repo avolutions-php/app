@@ -10,7 +10,6 @@
  */
 
 use Avolutions\Core\Application;
-use Avolutions\Config\Config;
 use Avolutions\Database\Database;
 use Avolutions\Logging\Logger;
 
@@ -33,28 +32,27 @@ $Application = new Application(__DIR__);
  * Configure Container
  */
 // TODO to own file. How can we override this?
-$Config = $Application->get(Config::class);
-$Application->setConstructorParams(
+$Application->set(
     Database::class,
     [
-        'host' => $Config->get('database/host'),
-        'database' => $Config->get('database/database'),
-        'port' => $Config->get('database/port'),
-        'user' => $Config->get('database/user'),
-        'password' => $Config->get('database/password'),
+        'host' => config('database/host'),
+        'database' => config('database/database'),
+        'port' => config('database/port'),
+        'user' => config('database/user'),
+        'password' => config('database/password'),
+        'charset' => config('database/charset'),
         'options' => [
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES ' . $Config->get('database/charset'),
             PDO::ATTR_PERSISTENT => true
         ]
     ]
 );
-$Application->setConstructorParams(
+$Application->set(
     Logger::class,
     [
-        'logpath' => $Config->get('logger/logpath'),
-        'logfile' => $Config->get('logger/logfile'),
-        'minLogLevel' => $Config->get('logger/loglevel'),
-        'datetimeFormat' => $Config->get('logger/datetimeFormat'),
+        'logpath' => config('logger/logpath'),
+        'logfile' => config('logger/logfile'),
+        'minLogLevel' => config('logger/loglevel'),
+        'datetimeFormat' => config('logger/datetimeFormat'),
     ]
 );
 
