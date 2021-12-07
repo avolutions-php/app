@@ -10,8 +10,7 @@
  */
 
 use Avolutions\Core\Application;
-use Avolutions\Database\Database;
-use Avolutions\Logging\Logger;
+use Avolutions\Database\Migrator;
 
 /**
  * Get start time
@@ -29,34 +28,6 @@ require __DIR__ . '/vendor/autoload.php';
 $Application = new Application(__DIR__);
 
 /**
- * Configure Container
- */
-// TODO to own file. How can we override this?
-$Application->set(
-    Database::class,
-    [
-        'host' => config('database/host'),
-        'database' => config('database/database'),
-        'port' => config('database/port'),
-        'user' => config('database/user'),
-        'password' => config('database/password'),
-        'charset' => config('database/charset'),
-        'options' => [
-            PDO::ATTR_PERSISTENT => true
-        ]
-    ]
-);
-$Application->set(
-    Logger::class,
-    [
-        'logpath' => config('logger/logpath'),
-        'logfile' => config('logger/logfile'),
-        'minLogLevel' => config('logger/loglevel'),
-        'datetimeFormat' => config('logger/datetimeFormat'),
-    ]
-);
-
-/**
  * Set error handler
  */
 $Application->setErrorHandler();
@@ -64,6 +35,6 @@ $Application->setErrorHandler();
 /**
  * Migrate the Database
  */
-/*if ($Config->get('database/migrateOnAppStart')) {
-    Database::migrate();
-}*/
+if (config('database/migrateOnAppStart')) {
+    application(Migrator::class)->migrate();
+}
