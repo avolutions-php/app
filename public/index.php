@@ -29,5 +29,5 @@ require_once '../events.php';
 /**
  * Start the application
  */
-$Request = new Request();
-$Request->send();
+$Request = $Application->get(Request::class);
+$Application->start($Request);
