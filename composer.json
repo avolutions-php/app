@@ -12,14 +12,14 @@
     ],
     "require": {
         "php": "^8.0",
-        "avolutions/avolutions": "~0.8"
+        "avolutions/avolutions": "^0.9.0"
     },
     "minimum-stability": "dev",
     "autoload": {
-		"psr-4": {
-			"Application\\": "application/"
-		}
-	},
+        "psr-4": {
+            "Application\\": "application/"
+        }
+    },
     "license": "MIT",
     "homepage": "https://avolutions.org",
     "authors": [
