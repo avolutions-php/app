@@ -11,7 +11,7 @@
 
 use Avolutions\Routing\RouteCollection;
 
-$RouteCollection = RouteCollection::getInstance();
+$RouteCollection = $Application->get(RouteCollection::class);
 
 /**
  * Register routes
